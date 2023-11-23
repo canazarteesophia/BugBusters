@@ -1,0 +1,91 @@
+#define ECHO 12
+#define TRIG 13
+#define IN1 6
+#define IN2 7
+#define IN3 8
+#define IN4 9
+#define ENA 10
+#define ENB 11
+#define IRD 4
+#define IRE 5
+
+void tras(){
+  digitalWrite(IN1,LOW);
+  digitalWrite(IN2,HIGH);
+  digitalWrite(IN3,LOW);
+  digitalWrite(IN4,HIGH);
+}
+
+void frente(){
+  digitalWrite(IN1,HIGH);
+  digitalWrite(IN2,LOW);
+  digitalWrite(IN3,HIGH);
+  digitalWrite(IN4,LOW);
+}
+void parar()  
+{
+digitalWrite(IN1,LOW);
+digitalWrite(IN2,LOW);
+digitalWrite(IN3,LOW);
+digitalWrite(IN4,LOW);
+}
+void direita()
+{
+digitalWrite(IN1,LOW);
+digitalWrite(IN2,HIGH);
+digitalWrite(IN3,HIGH);
+digitalWrite(IN4,LOW);
+}
+void esquerda()
+{
+digitalWrite(IN1,HIGH);
+digitalWrite(IN2,LOW);
+digitalWrite(IN3,LOW);
+digitalWrite(IN4,HIGH);
+}
+
+int state_rec;
+char state;
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(IN1,OUTPUT);  
+  pinMode(IN2,OUTPUT);
+  pinMode(IN3,OUTPUT);
+  pinMode(IN4,OUTPUT);
+  pinMode(ENA,OUTPUT);
+  pinMode(ENB,OUTPUT);
+  analogWrite(ENA,95);
+  analogWrite(ENB,95);
+  pinMode(IRD,INPUT);
+  pinMode(IRE,INPUT);
+
+
+}
+void loop(){
+  delay(200);
+
+ if (Serial.available() > 0) {
+    state_rec = Serial.read();
+    state = state_rec;
+    Serial.print(state);
+  }
+
+
+  if(state == 'F'){
+    frente();
+  }
+  if(state== 'T'){
+    tras();
+  }
+  if(state == 'D'){
+    direita();
+  }
+  if(state == 'E'){
+    esquerda();
+  }
+  if(state == 'P'){
+    parar();
+  }
+
+}
