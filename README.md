@@ -45,5 +45,9 @@ Uma fonte de alimentação para alimentar o Arduino.
 ![image](https://github.com/canazarteesophia/BugBusters/assets/150062861/e8a7832a-3f78-4365-95eb-e01165342c06)
 *Código em blocos do Aplicativo*
 
+O valor 00:06:71:00:35:EC pode variar de acordo com o módulo Bluetooth. 
+
+![image](https://github.com/canazarteesophia/BugBusters/assets/150062861/117f21e8-7c60-4ee8-b392-14eb1ecaed28)
+*Foto do Robô*
 
 
